@@ -3,40 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chaîne TV Aléatoire</title>
+    <title>Chaîne TV DiMADRAMAMCN</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+        }
+        iframe {
+            width: 80%;
+            height: 80%;
+        }
+    </style>
 </head>
 <body>
-    <h1>Chaîne TV Aléatoire</h1>
-    <div id="player"></div>
-
+    <iframe id="video" src="" frameborder="0" allowfullscreen></iframe>
     <script>
-        // Liste des vidéos YouTube de la chaîne DiMADRAMAMCN
-        var videoUrls = [
-            'L6TwtJFCeXs', // ID de la vidéo 1
-            'fCSjNbtqYgA', // ID de la vidéo 2
-            'DA0HWWcWvOk', // ID de la vidéo 3
-            'Wzj6TjD-8yo', // ID de la vidéo 4
-            'H4ed7hJHY3k'  // ID de la vidéo 5
+        const videos = [
+            "https://www.youtube.com/embed/AIeEqQfMNwI",
+            "https://www.youtube.com/embed/wQ7OP6gEl_s",
+            "https://www.youtube.com/embed/n9SH9KZ5C6U",
+            "https://www.youtube.com/embed/ugB_vPlZK3E",
+            "https://www.youtube.com/embed/o_EoE_8L2Dg",
+            "https://www.youtube.com/embed/X3ZtKfNP1Dg",
+            "https://www.youtube.com/embed/e0ySB6hnp2U",
+            "https://www.youtube.com/embed/8g6Iw3aNIHg",
+            "https://www.youtube.com/embed/J_2T0kZQQjI",
+            "https://www.youtube.com/embed/AuH1KHMba1w"
         ];
 
-        // Choisir une vidéo aléatoire
-        var randomVideoId = videoUrls[Math.floor(Math.random() * videoUrls.length)];
-
-        // Charger la vidéo dans le lecteur YouTube
-        var player;
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('player', {
-                height: '390',
-                width: '640',
-                videoId: randomVideoId,
-            });
+        function getRandomVideo() {
+            const randomIndex = Math.floor(Math.random() * videos.length);
+            document.getElementById('video').src = videos[randomIndex];
         }
 
-        // Charger l'API YouTube Iframe
-        var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        window.onload = getRandomVideo;
     </script>
 </body>
 </html>
